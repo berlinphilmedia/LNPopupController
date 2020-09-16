@@ -13,7 +13,7 @@
 static const void* LNPopupAwaitingViewInWindowHierarchyKey = &LNPopupAwaitingViewInWindowHierarchyKey;
 static const void* LNPopupNotifyingKey = &LNPopupNotifyingKey;
 
-#if ! LNPopupControllerEnforceStrictClean
+#ifndef LNPopupControllerEnforceStrictClean
 //_didMoveFromWindow:toWindow:
 static NSString* dMFWtW = @"X2RpZE1vdmVGcm9tV2luZG93OnRvV2luZG93Og==";
 #endif
@@ -30,7 +30,7 @@ static NSString* dMFWtW = @"X2RpZE1vdmVGcm9tV2luZG93OnRvV2luZG93Og==";
 {
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-#if ! LNPopupControllerEnforceStrictClean
+#ifndef LNPopupControllerEnforceStrictClean
 		NSString* sel = _LNPopupDecodeBase64String(dMFWtW);
 		LNSwizzleMethod(self,
 						NSSelectorFromString(sel),
@@ -43,7 +43,7 @@ static NSString* dMFWtW = @"X2RpZE1vdmVGcm9tV2luZG93OnRvV2luZG93Og==";
 	});
 }
 
-#if ! LNPopupControllerEnforceStrictClean
+#ifndef LNPopupControllerEnforceStrictClean
 //_didMoveFromWindow:toWindow:
 - (void)_ln__dMFW:(UIWindow*)fromWindow tW:(UIWindow*)toWindow
 {
